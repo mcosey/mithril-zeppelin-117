@@ -224,38 +224,77 @@ footer {
 footer p { margin: 0; }
 
 .foc-page {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 58% 18%, rgba(61, 61, 36, 0.23), transparent 34%),
+    radial-gradient(circle at 68% 14%, rgba(89, 82, 43, 0.2), transparent 30%),
+    radial-gradient(circle at 8% 54%, rgba(92, 61, 31, 0.14), transparent 26%),
     repeating-linear-gradient(11deg, transparent 0 12px, rgba(220, 196, 132, 0.018) 13px),
-    #10110c;
+    linear-gradient(145deg, #171910 0%, #0d0f0a 52%, #13140d 100%);
+}
+
+.foc-page::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(213, 172, 92, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(213, 172, 92, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 52% 36%, black, transparent 72%);
+  pointer-events: none;
 }
 
 .foc-reader {
   display: grid;
   grid-template-columns: minmax(245px, 310px) minmax(0, 1fr);
-  gap: 1.2rem;
+  gap: clamp(0.7rem, 1.2vw, 1.1rem);
   width: min(1500px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 0 0 1.4rem;
+  padding: 0 0 2rem;
+  filter: drop-shadow(0 28px 42px rgba(0, 0, 0, 0.28));
 }
 
 .foc-sidebar {
+  position: relative;
   align-self: start;
   min-height: calc(100vh - 122px);
-  border: 1px solid rgba(170, 130, 68, 0.34);
+  overflow: hidden;
+  border: 1px solid rgba(183, 143, 75, 0.42);
   background:
-    radial-gradient(circle at 30% 28%, rgba(60, 62, 36, 0.24), transparent 32%),
-    linear-gradient(180deg, rgba(18, 20, 13, 0.97), rgba(13, 14, 10, 0.98));
+    radial-gradient(circle at 20% 18%, rgba(82, 78, 42, 0.32), transparent 31%),
+    repeating-linear-gradient(12deg, transparent 0 10px, rgba(224, 193, 122, 0.015) 11px),
+    linear-gradient(165deg, rgba(22, 24, 15, 0.99), rgba(10, 11, 8, 0.99));
   color: var(--parchment);
+  box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.45);
+}
+
+.foc-sidebar::after {
+  position: absolute;
+  inset: 7px;
+  content: "";
+  border: 1px solid rgba(201, 164, 92, 0.1);
+  pointer-events: none;
 }
 
 .foc-sidebar-heading {
+  position: relative;
   display: grid;
-  min-height: 145px;
+  min-height: 156px;
   place-content: center;
   padding: 1.5rem;
   text-align: center;
+}
+
+.foc-sidebar-heading::before {
+  width: 8px;
+  height: 8px;
+  margin: 0 auto 1rem;
+  border: 1px solid var(--parchment-muted);
+  content: "";
+  transform: rotate(45deg);
 }
 
 .foc-sidebar-heading p {
@@ -263,6 +302,8 @@ footer p { margin: 0; }
   color: var(--parchment-bright);
   font-size: clamp(1.4rem, 2vw, 2rem);
   letter-spacing: 0.06em;
+  line-height: 1.12;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
 }
 
@@ -270,7 +311,7 @@ footer p { margin: 0; }
   width: 94px;
   height: 1px;
   margin: 1rem auto 0;
-  background: var(--parchment-muted);
+  background: linear-gradient(90deg, transparent, var(--parchment-muted), transparent);
 }
 
 .foc-tabs {
@@ -280,12 +321,12 @@ footer p { margin: 0; }
 .foc-tabs button {
   position: relative;
   display: grid;
-  grid-template-columns: 38px 1fr;
+  grid-template-columns: 40px 1fr;
   align-items: center;
   min-height: 70px;
   padding: 0.9rem 1.25rem;
   border: 0;
-  border-top: 1px solid rgba(170, 130, 68, 0.25);
+  border-top: 1px solid rgba(170, 130, 68, 0.2);
   background: transparent;
   color: var(--parchment);
   cursor: pointer;
@@ -294,18 +335,39 @@ footer p { margin: 0; }
   letter-spacing: 0.13em;
   text-align: left;
   text-transform: uppercase;
+  transition: color 180ms ease, background 180ms ease, letter-spacing 180ms ease;
 }
 
 .foc-tabs button > span {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid rgba(183, 143, 75, 0.28);
+  border-radius: 50%;
   color: var(--parchment-muted);
-  font-size: 0.72rem;
+  font-size: 0.62rem;
   letter-spacing: 0;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
 }
 
 .foc-tabs button:hover,
 .foc-tabs button:focus-visible,
 .foc-tabs button[aria-selected="true"] {
-  background: linear-gradient(90deg, rgba(129, 96, 48, 0.35), rgba(129, 96, 48, 0.08));
+  background:
+    linear-gradient(90deg, rgba(156, 112, 49, 0.42), rgba(105, 80, 39, 0.18) 72%, transparent),
+    radial-gradient(circle at 18% 50%, rgba(222, 184, 102, 0.08), transparent 38%);
+  color: var(--parchment-bright);
+}
+
+.foc-tabs button[aria-selected="true"] {
+  letter-spacing: 0.16em;
+  box-shadow: inset 0 1px rgba(223, 186, 109, 0.12), inset 0 -1px rgba(0, 0, 0, 0.18);
+}
+
+.foc-tabs button[aria-selected="true"] > span {
+  border-color: rgba(220, 181, 101, 0.75);
+  background: rgba(205, 162, 84, 0.12);
   color: var(--parchment-bright);
 }
 
@@ -314,29 +376,54 @@ footer p { margin: 0; }
   top: 0;
   right: 0;
   bottom: 0;
-  width: 3px;
+  width: 4px;
   content: "";
-  background: var(--parchment);
+  background: linear-gradient(180deg, var(--parchment-bright), #8d6834);
+  box-shadow: 0 0 12px rgba(213, 169, 84, 0.32);
 }
 
 .foc-parchment {
   position: relative;
   min-height: calc(100vh - 122px);
   overflow: hidden;
+  border: 1px solid rgba(84, 53, 24, 0.62);
+  border-radius: 2px 7px 3px 5px;
   background:
-    radial-gradient(circle at 17% 13%, rgba(255, 245, 205, 0.3), transparent 25%),
-    radial-gradient(circle at 78% 68%, rgba(114, 74, 31, 0.11), transparent 30%),
-    repeating-linear-gradient(7deg, transparent 0 11px, rgba(75, 48, 22, 0.022) 12px),
-    linear-gradient(135deg, #d6bd86 0%, #c9aa70 48%, #b99359 100%);
+    radial-gradient(circle at 16% 12%, rgba(255, 244, 202, 0.34), transparent 25%),
+    radial-gradient(circle at 82% 76%, rgba(102, 63, 27, 0.15), transparent 31%),
+    radial-gradient(circle at 66% 18%, rgba(255, 231, 169, 0.16), transparent 18%),
+    repeating-radial-gradient(circle at 34% 41%, rgba(78, 49, 22, 0.025) 0 0.7px, transparent 0.8px 4px),
+    repeating-linear-gradient(7deg, transparent 0 11px, rgba(75, 48, 22, 0.025) 12px),
+    linear-gradient(135deg, #d9c18b 0%, #c9a96f 48%, #b68d54 100%);
   color: #292116;
-  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    inset 0 0 75px rgba(77, 43, 16, 0.27),
+    inset 0 0 0 7px rgba(255, 238, 185, 0.07),
+    0 20px 55px rgba(0, 0, 0, 0.42);
 }
 
 .foc-parchment::before {
   position: absolute;
-  inset: 0;
+  inset: 13px;
+  z-index: 2;
   content: "";
-  box-shadow: inset 0 0 55px rgba(79, 44, 17, 0.28);
+  border: 1px solid rgba(79, 49, 22, 0.22);
+  box-shadow: 0 0 0 3px rgba(255, 238, 183, 0.05);
+  pointer-events: none;
+}
+
+.foc-parchment::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  content: "";
+  background:
+    linear-gradient(135deg, rgba(76, 43, 17, 0.24), transparent 16px) top left,
+    linear-gradient(225deg, rgba(76, 43, 17, 0.2), transparent 16px) top right,
+    linear-gradient(45deg, rgba(76, 43, 17, 0.2), transparent 16px) bottom left,
+    linear-gradient(315deg, rgba(76, 43, 17, 0.25), transparent 16px) bottom right;
+  background-repeat: no-repeat;
+  background-size: 38px 38px;
   pointer-events: none;
 }
 
@@ -345,12 +432,37 @@ footer p { margin: 0; }
 .foc-placeholder {
   position: relative;
   z-index: 1;
-  padding: clamp(2.5rem, 5vw, 5rem) clamp(2rem, 6vw, 6.5rem);
+  padding: clamp(3rem, 5vw, 5.4rem) clamp(2.4rem, 6vw, 6.8rem);
+}
+
+.chapter-panel::before {
+  position: absolute;
+  top: clamp(2.1rem, 4vw, 3.8rem);
+  right: clamp(2.2rem, 4vw, 4.5rem);
+  color: rgba(71, 46, 24, 0.42);
+  content: "MZ · 117";
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.chapter-panel::after {
+  position: absolute;
+  top: 4.8rem;
+  right: clamp(2rem, 4vw, 4.2rem);
+  z-index: -1;
+  color: rgba(77, 48, 22, 0.045);
+  content: "I";
+  font-size: clamp(10rem, 19vw, 21rem);
+  line-height: 0.75;
+  pointer-events: none;
 }
 
 .foc-kicker {
   margin: 0;
+  color: #4b351e;
   font-size: 1rem;
+  font-weight: 600;
   letter-spacing: 0.21em;
   text-transform: uppercase;
 }
@@ -366,10 +478,13 @@ footer p { margin: 0; }
   letter-spacing: -0.045em;
   line-height: 0.9;
   text-transform: uppercase;
+  text-shadow: 0 1px rgba(255, 243, 199, 0.34);
 }
 
 .chapter-heading {
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem 0.15rem;
+  padding-left: 1.15rem;
+  border-left: 2px solid rgba(91, 59, 28, 0.48);
 }
 
 .chapter-heading p {
@@ -390,7 +505,7 @@ footer p { margin: 0; }
   display: flex;
   align-items: center;
   max-width: 780px;
-  margin: 1.6rem 0 2rem;
+  margin: 1.8rem 0 2.4rem;
 }
 
 .chapter-rule::before,
@@ -412,7 +527,7 @@ footer p { margin: 0; }
 .chapter-copy {
   max-width: 860px;
   font-size: clamp(1rem, 1.2vw, 1.16rem);
-  line-height: 1.7;
+  line-height: 1.76;
 }
 
 .chapter-copy p {
@@ -426,9 +541,10 @@ footer p { margin: 0; }
 .opening-paragraph::first-letter {
   float: left;
   margin: 0.08em 0.1em 0 0;
-  color: #4b351e;
+  color: #593b1e;
   font-size: 4.6em;
   line-height: 0.76;
+  text-shadow: 1px 1px rgba(255, 236, 180, 0.3);
 }
 
 .chapter-pagination {
