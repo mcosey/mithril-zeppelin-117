@@ -1,26 +1,26 @@
 export const navigation = [
   { label: "Home", href: "/" },
-  { label: "Fate of Creation", href: "/fate-of-creation" },
+  { label: "About", href: "/about" },
+  { label: "The Fate of Creation", href: "/fate-of-creation" },
   { label: "The Bard Named Blythe", href: "/the-bard-named-blythe" },
   { label: "Other Works", href: "/other-works" },
-  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
 export const writingProjects = [
   {
-    series: "Fate of Creation I",
+    series: "The Fate of Creation I",
     title: "First Draft",
     progress: 100,
   },
   {
-    series: "Fate of Creation II",
+    series: "The Fate of Creation II",
     title: "First Draft",
     progress: 100,
   },
   {
-    series: "Fate of Creation III",
+    series: "The Fate of Creation III",
     title: "First Draft",
     progress: 27,
   },
@@ -31,7 +31,6 @@ export const plannedPages = {
   "other-works": { eyebrow: "Stories beyond the known map", title: "Other Works" },
   about: { eyebrow: "Behind the stories", title: "About" },
   blog: { eyebrow: "Letters from the writing desk", title: "Blog" },
-  contact: { eyebrow: "Send word", title: "Contact" },
 } as const;
 
 export type PlannedPageSlug = keyof typeof plannedPages;

@@ -52,7 +52,7 @@ function BeginningPanel() {
           />
         </svg>
         <div className="chapter-title-copy">
-          <p className="foc-kicker">Fate of Creation I</p>
+          <p className="foc-kicker">The Fate of Creation I</p>
           <div className="chapter-heading">
             <h2>The First Storm</h2>
           </div>
@@ -73,7 +73,7 @@ function BeginningPanel() {
 function MapPanel() {
   return (
     <section className="map-panel" role="tabpanel" id="panel-map" aria-labelledby="tab-map">
-      <p className="foc-kicker">The world of Fate of Creation</p>
+      <p className="foc-kicker">The world of The Fate of Creation</p>
       <h1>Ebon Yard</h1>
       <figure>
         <Image
@@ -93,7 +93,7 @@ function MapPanel() {
 function PlaceholderPanel({ label, id }: { label: string; id: TabId }) {
   return (
     <section className="foc-placeholder" role="tabpanel" id={`panel-${id}`} aria-labelledby={`tab-${id}`}>
-      <p className="foc-kicker">Fate of Creation</p>
+      <p className="foc-kicker">The Fate of Creation</p>
       <h1>{label}</h1>
       <p>This section is still being prepared.</p>
     </section>
@@ -106,9 +106,9 @@ export function FateOfCreationReader() {
 
   return (
     <div className="foc-reader">
-      <aside className="foc-sidebar" aria-label="Fate of Creation sections">
+      <aside className="foc-sidebar" aria-label="The Fate of Creation sections">
         <div className="foc-sidebar-heading">
-          <p>Fate of Creation</p>
+          <p>The Fate of Creation</p>
           <span aria-hidden="true" />
         </div>
         <div className="foc-tabs" role="tablist" aria-orientation="vertical">
