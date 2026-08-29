@@ -27,5 +27,5 @@ Open [http://localhost:3000](http://localhost:3000) in a browser.
 - The Bard Named Blythe
 - Other Works
 - About
-- Newsletter
+- Blog
 - News / Blog (optional)

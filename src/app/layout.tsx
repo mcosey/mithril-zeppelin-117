@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Mithril Zeppelin 117 Publishing",
-  description: "Official author and publishing website.",
+  description: "Stories of myth, epic fantasy, timeless tales, and worlds of meaning.",
 };
 
 export default function RootLayout({
