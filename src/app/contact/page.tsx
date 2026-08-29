@@ -12,13 +12,8 @@ export default function ContactPage() {
       <SiteHeader activeHref="/contact" />
       <section className="contact-layout" aria-labelledby="contact-title">
         <div className="contact-introduction">
-          <p className="contact-eyebrow">Send word</p>
           <h1 id="contact-title">Contact</h1>
           <div className="contact-rule" aria-hidden="true"><span /></div>
-          <p>
-            For publishing inquiries, professional correspondence, or questions about
-            Mithril Zeppelin 117 Publishing, leave a message here.
-          </p>
         </div>
 
         <div className="contact-parchment">

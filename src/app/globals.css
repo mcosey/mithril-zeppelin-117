@@ -630,18 +630,10 @@ footer p { margin: 0; }
   max-width: 470px;
 }
 
-.contact-eyebrow {
-  margin: 0 0 1rem;
-  color: var(--parchment-muted);
-  font-size: 0.76rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-}
-
 .contact-introduction h1 {
   margin: 0;
   color: var(--parchment-bright);
-  font-size: clamp(4rem, 8vw, 7.2rem);
+  font-size: clamp(3.2rem, 6vw, 5.4rem);
   font-weight: 400;
   letter-spacing: -0.045em;
   line-height: 0.9;
@@ -674,13 +666,6 @@ footer p { margin: 0; }
   margin: 0 0.75rem;
   border: 1px solid var(--parchment-muted);
   transform: rotate(45deg);
-}
-
-.contact-introduction > p:last-child {
-  margin: 0;
-  color: var(--parchment);
-  font-size: 1.08rem;
-  line-height: 1.75;
 }
 
 .contact-parchment {
