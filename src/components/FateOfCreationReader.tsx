@@ -28,10 +28,8 @@ function BeginningPanel() {
   return (
     <article className="chapter-panel" role="tabpanel" id="panel-beginning" aria-labelledby="tab-beginning">
       <p className="foc-kicker">Fate of Creation I</p>
-      <h1>The Beginning</h1>
       <div className="chapter-heading">
-        <p>Chapter I</p>
-        <h2>In the First Light</h2>
+        <h2>The First Storm</h2>
       </div>
       <div className="chapter-rule" aria-hidden="true"><span /></div>
       <div className="chapter-copy">
