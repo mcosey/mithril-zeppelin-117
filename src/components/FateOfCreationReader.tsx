@@ -4,21 +4,19 @@ import Image from "next/image";
 import { useState } from "react";
 
 const tabs = [
-  { id: "beginning", label: "The Beginning", marker: "I" },
+  { id: "beginning", label: "The First Storm", marker: "I" },
   { id: "map", label: "Map", marker: "M" },
   { id: "proto-medjic", label: "Proto-Medjic", marker: "P" },
-  { id: "dummy-1", label: "The Medjic Calendar", marker: "01" },
-  { id: "dummy-2", label: "Dummy Tab 2", marker: "02" },
-  { id: "dummy-3", label: "Dummy Tab 3", marker: "03" },
+  { id: "calendar", label: "The Medjic Calendar", marker: "01" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
 
 const chapterParagraphs = [
-  "The shadows cast by the many trees in the forests East of Abessagar were uncommonly restless. The wind stirred through acacia branches arousing their leaves to attention as if they were stalked by a predator. However, even the hyenas, cheetahs, and lions throughout the plains were distracted from their normal activities, stricken with agitation themselves—their prey also unnerved. Neither the hunters nor the hunted knew the origins of their anxieties, and they would never know, for the animals of Ebon Yard, from the forests of East Abessagar to the mountain scattered along the coasts that lay West of Mejaced, were not given such insight upon creation. What insight they possessed amounted to a near aimless instinct.",
+  "The shadows cast by the many trees in the forests East of Abessagar were uncommonly restless. The wind stirred through acacia branches arousing their leaves to attention as if they were stalked by a predator. However, even the hyenas, cheetahs, and lions throughout the plains were distracted from their normal activities, stricken with agitation themselves, their prey also unnerved. Neither the hunters nor the hunted knew the origins of their anxieties, and they would never know, for the animals of Ebon Yard, from the forests of East Abessagar to the mountain scattered along the coasts that lay West of Mejaced, were not given such insight upon creation. What insight they possessed amounted to a near aimless instinct.",
   "Wattle plovers, starlings, and purple rollers flitted from the stirring branches to the thatching grass, and muted their many songs, shifting into a state of alert. Mongooses, aardvarks, and ground squirrels retreated to their burrows underground, and larger animals like the zebra crowded as though the strength of their numbers would ward off a storm like it might the hungry lion.",
   "In fact, the animals knew no more than what lay in front of their eyes or what memory could tell them from the moment just before the last. The lions knew not that their overhunting would cause demise for their future generations; the hyenas knew not they fouled the watering holes with their tainted wastes; and the cheetahs could not be themselves restore the land following sweeping fires through the brush. Most importantly, they had no intuition to suggest that the grandeur of the groaning storm lingering in the East was of any more consequence than the storms that came before.",
-  "Surely the animals would not have taken notice that the wind pulled at the thatch grass more than usual, or that the swollen clouds were darker. Though, the latter would be hard for them to gather for Ebon Yard rested in an ever twilight, but not so dark that shadows could not be shown on the dirt. No sun bore down on the plains, but the land was not without light or warmth. Later, it would be named the Dim Star—a vast but smooth black bead wreathed in swirling light that could tenant an entire horizon.",
+  "Surely the animals would not have taken notice that the wind pulled at the thatch grass more than usual, or that the swollen clouds were darker. Though, the latter would be hard for them to gather for Ebon Yard rested in an ever twilight, but not so dark that shadows could not be shown on the dirt. No sun bore down on the plains, but the land was not without light or warmth. Later, it would be named the Dim Star, a vast but smooth black bead wreathed in swirling light that could tenant an entire horizon.",
   "The luster from the Dim Star casted stark shadows, and animals who looked upon them had to reason to think these were anything more than respite from the Dim Star’s heat.",
   "The trees in the forest of Aksum that were nearest to the savannah of Anbessegar shook more violently so, but their shadows remained still despite the frenzied wind.",
   "And a voiceless command to rise filled the thoughts on these shadows like warm water in a calabash bowl, and hence the Medjai were born on the soils of Ebon Yard.",
@@ -29,8 +27,8 @@ const protoOverview = [
   ["Questions", "Interrogatives appear at the end."],
   ["Negation", "Precedes the clause."],
   ["Verbs", "Built from biconsonantal roots (C¹–C²) with vowel patterns and aspect markers."],
-  ["Nouns", "Three classes—Animate, Inanimate, and Abstract—with case distinctions."],
-  ["No Subjunctive", "The Medjai’s Hallowed Sight leaves little room for uncertainty."],
+  ["Nouns", "Three classes: Animate, Inanimate, and Abstract, with case distinctions."],
+  ["No Subjunctive", "The Medjai’s Hallowed Gaze leaves little room for uncertainty."],
 ] as const;
 
 const protoExamples = [
@@ -69,29 +67,43 @@ const protoExamples = [
 const medjicEvolution = [
   {
     name: "High Medjic",
-    era: "Pre-Amlak Contact",
-    description: "The Medjai inhabited Ebon Yard and developed High Medjic before their first contact with the Amlak. When communicating with the Medjai, the Amlak spoke both High Medjic and their own unnamed language. High Medjic acquired loanwords from the Amlak language but was otherwise uninfluenced by it; this amalgamation became Proto-Medjic.",
-  },
-  {
-    name: "Old Medjic",
-    era: "After Leviathan Contact",
-    description: "When the Medjai encountered the Leviathan—volatile and unpredictable beings—this clouded their Hallowed Sight. Rapid linguistic changes followed, including the development of a subjunctive mood. Once these shifts stabilized, the language became known as Old Medjic.",
+    era: "Before and After Amlak Contact",
+    description: "The Medjai developed High Medjic in Ebon Yard before meeting the Amlak. When communicating with the Medjai, the Amlak spoke both High Medjic and their own unnamed language. High Medjic therefore acquired Amlak loanwords, but its structure was otherwise uninfluenced by the Amlak language.",
   },
   {
     name: "Primitive Leviic",
     era: "Before Medjic Contact",
-    description: "The early language of the Leviathan before meaningful contact with the Medjai.",
+    description: "Primitive Leviic was the language spoken by the Leviathan before contact with the Medjai. In southern Ebon Yard, communities that did not seek out the Medjai continued to develop the language slowly and with relative stability.",
+  },
+  {
+    name: "Old Medjic",
+    era: "After Leviathan Contact",
+    description: "Contact with the volatile and unpredictable Leviathan, who spoke Primitive Leviic, obscured the Medjai’s Hallowed Gaze. High Medjic changed rapidly and developed features including a subjunctive mood. Once those changes stabilized, the language became Old Medjic. Most Leviathan of the Modern Ages have no knowledge of High Medjic, which was lost with their immortal ancestors.",
   },
   {
     name: "Low Leviic",
     era: "Result of Leukander",
-    description: "Leukander, a Leviathan who defected south, introduced Old Medjic to an evolved form of Primitive Leviic. His people, resentful of the Medjai, developed a distinct tongue.",
+    description: "Leukander, a Leviathan who defected to southern Ebon Yard, introduced Old Medjic to an evolved form of Primitive Leviic. The resulting Low Leviic remained less influenced by Old Medjic because Leukander’s people resented the Medjai.",
   },
   {
     name: "Low Medjic / Medjic",
     era: "Lingua Franca",
-    description: "Through conquest, mixing, and centuries of shared history, Low Leviic and Old Medjic merged and evolved into the lingua franca of Ebon Yard. This is the language of the modern ages depicted in the narrative.",
+    description: "After the Medjai occupied southern Ebon Yard, Low Leviic became heavily influenced by Old Medjic. Their mixing produced Low Medjic, usually called Medjic, which became the lingua franca of the modern world. Many Leviathan retained Low Leviic naming conventions as a matter of custom.",
   },
+  {
+    name: "Dialects of Low Medjic",
+    era: "Modern Ages",
+    description: "The Medjai dialect became the primary lingua franca of Ebon Yard. Many Leviathan speak a creole with stronger vestiges of Low Leviic, while some also speak the Medjai dialect.",
+  },
+] as const;
+
+const medjicAges = [
+  "Age of Lucence",
+  "Age of Consonance",
+  "Age of Dissonance",
+  "Age of Chasity",
+  "Age of Severance",
+  "Age of Requiem",
 ] as const;
 
 function EmblemWatermark() {
@@ -140,21 +152,21 @@ function BeginningPanel() {
 function ProtoMedjicPanel() {
   return (
     <section className="proto-panel" role="tabpanel" id="panel-proto-medjic" aria-labelledby="tab-proto-medjic">
-      <div className="chapter-title-block proto-title-block">
+      <div className="chapter-title-block">
         <EmblemWatermark />
         <div className="chapter-title-copy">
           <p className="foc-kicker">The Fate of Creation</p>
-          <h1>Proto-Medjic</h1>
-          <p className="proto-tagline">The ancestral tongue of the Medjai.</p>
+          <div className="chapter-heading">
+            <h2>Proto-Medjic</h2>
+          </div>
         </div>
       </div>
       <div className="chapter-rule" aria-hidden="true"><span /></div>
 
       <p className="proto-introduction">
-        Proto-Medjic is the earliest attested amalgamated form of the Medjai language. It emerged
-        when the Amlak used both High Medjic and their own unnamed language while communicating
-        with the Medjai, introducing loanwords into High Medjic. The language reflects a people who
-        see the world through action, memory, and certainty.
+        Proto-Medjic is an early form of the Medjai language. It developed when the Amlak used both
+        High Medjic and their own language while communicating with the Medjai. This introduced
+        loanwords from the Amlak language but otherwise left High Medjic uninfluenced.
       </p>
 
       <div className="proto-overview-grid">
@@ -207,6 +219,10 @@ function ProtoMedjicPanel() {
       <section className="proto-evolution" aria-labelledby="proto-evolution-title">
         <div className="proto-section-heading">
           <h2 id="proto-evolution-title">The Evolution of Proto-Medjic</h2>
+          <p>
+            High Medjic and Primitive Leviic developed separately before Medjai and Leviathan
+            contact. Later stages emerged through contact, migration, conquest, and language mixing.
+          </p>
         </div>
         <div className="proto-timeline">
           {medjicEvolution.map((stage) => (
@@ -224,8 +240,15 @@ function ProtoMedjicPanel() {
 function MapPanel() {
   return (
     <section className="map-panel" role="tabpanel" id="panel-map" aria-labelledby="tab-map">
-      <p className="foc-kicker">The world of The Fate of Creation</p>
-      <h1>Ebon Yard</h1>
+      <div className="chapter-title-block">
+        <EmblemWatermark />
+        <div className="chapter-title-copy">
+          <div className="chapter-heading">
+            <h2>Ebon Yard</h2>
+          </div>
+        </div>
+      </div>
+      <div className="chapter-rule" aria-hidden="true"><span /></div>
       <figure>
         <Image
           src="/images/ebon-yard-map.jpg"
@@ -235,25 +258,32 @@ function MapPanel() {
           quality={90}
           sizes="(max-width: 900px) 94vw, 74vw"
         />
-        <figcaption>Charted lands of Ebon Yard</figcaption>
       </figure>
     </section>
   );
 }
 
-function PlaceholderPanel({ label, id }: { label: string; id: TabId }) {
+function MedjicCalendarPanel() {
   return (
-    <section className="foc-placeholder" role="tabpanel" id={`panel-${id}`} aria-labelledby={`tab-${id}`}>
-      <p className="foc-kicker">The Fate of Creation</p>
-      <h1>{label}</h1>
-      <p>This section is still being prepared.</p>
+    <section className="calendar-panel" role="tabpanel" id="panel-calendar" aria-labelledby="tab-calendar">
+      <div className="chapter-title-block">
+        <EmblemWatermark />
+        <div className="chapter-title-copy">
+          <div className="chapter-heading">
+            <h2>The Medjic Calendar</h2>
+          </div>
+        </div>
+      </div>
+      <div className="chapter-rule" aria-hidden="true"><span /></div>
+      <ol className="calendar-ages">
+        {medjicAges.map((age) => <li key={age}>{age}</li>)}
+      </ol>
     </section>
   );
 }
 
 export function FateOfCreationReader() {
   const [activeTab, setActiveTab] = useState<TabId>("beginning");
-  const active = tabs.find((tab) => tab.id === activeTab) ?? tabs[0];
 
   return (
     <div className="foc-reader">
@@ -284,9 +314,7 @@ export function FateOfCreationReader() {
         {activeTab === "beginning" ? <BeginningPanel /> : null}
         {activeTab === "map" ? <MapPanel /> : null}
         {activeTab === "proto-medjic" ? <ProtoMedjicPanel /> : null}
-        {activeTab !== "beginning" && activeTab !== "map" && activeTab !== "proto-medjic" ? (
-          <PlaceholderPanel label={active.label} id={active.id} />
-        ) : null}
+        {activeTab === "calendar" ? <MedjicCalendarPanel /> : null}
       </div>
     </div>
   );

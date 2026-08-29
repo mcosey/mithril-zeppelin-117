@@ -5,7 +5,7 @@ export function WritingProgress() {
     <section className="progress-section" id="writing-progress" aria-labelledby="progress-title">
       <div className="section-heading">
         <span aria-hidden="true" />
-        <h2 id="progress-title">The Fate of Creation — Work in Progress</h2>
+        <h2 id="progress-title">The Fate of Creation: Work in Progress</h2>
         <span aria-hidden="true" />
       </div>
       <div className="progress-grid">
