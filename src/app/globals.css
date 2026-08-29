@@ -435,6 +435,7 @@ footer p { margin: 0; }
 
 .chapter-panel,
 .map-panel,
+.proto-panel,
 .foc-placeholder {
   position: relative;
   z-index: 1;
@@ -545,6 +546,272 @@ footer p { margin: 0; }
   font-size: 4.6em;
   line-height: 0.76;
   text-shadow: 1px 1px rgba(255, 236, 180, 0.3);
+}
+
+.proto-title-block {
+  min-height: clamp(260px, 34vw, 370px);
+}
+
+.proto-title-block .chapter-emblem {
+  width: clamp(270px, 38vw, 440px);
+  opacity: 0.075;
+}
+
+.proto-title-block h1 {
+  margin: 0.8rem 0 0.55rem;
+  color: #2b2016;
+  font-size: clamp(3.4rem, 7vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.proto-tagline {
+  margin: 0;
+  color: #4d3621;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-style: italic;
+}
+
+.proto-panel > .chapter-rule {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.proto-introduction {
+  max-width: 880px;
+  margin: 0 auto 2.8rem;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.proto-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 980px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(79, 52, 27, 0.28);
+  border-bottom: 1px solid rgba(79, 52, 27, 0.28);
+}
+
+.proto-overview-grid > section {
+  padding: 2rem clamp(1.2rem, 3vw, 2.3rem);
+}
+
+.proto-overview-grid > section + section {
+  border-left: 1px solid rgba(79, 52, 27, 0.28);
+}
+
+.proto-overview-grid h2,
+.proto-section-heading h2 {
+  margin: 0 0 1rem;
+  color: #3c2b1b;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.proto-overview-grid ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.proto-overview-grid li {
+  position: relative;
+  padding-left: 1.05rem;
+  line-height: 1.52;
+}
+
+.proto-overview-grid li::before {
+  position: absolute;
+  top: 0.6em;
+  left: 0.1rem;
+  width: 5px;
+  height: 5px;
+  border: 1px solid rgba(83, 54, 27, 0.72);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.proto-overview-grid p {
+  margin: 0 0 1.25rem;
+  line-height: 1.65;
+}
+
+.proto-quote {
+  max-width: 760px;
+  margin: 3rem auto;
+  padding: 1.8rem 2rem;
+  border-top: 1px solid rgba(79, 52, 27, 0.24);
+  border-bottom: 1px solid rgba(79, 52, 27, 0.24);
+  text-align: center;
+}
+
+.proto-quote p {
+  margin: 0;
+  color: #4b341d;
+  font-size: 1.22rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.proto-quote cite {
+  display: block;
+  margin-top: 0.75rem;
+  color: rgba(70, 47, 27, 0.74);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.proto-reading,
+.proto-evolution {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.proto-section-heading {
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.proto-section-heading h2 {
+  margin-bottom: 0.45rem;
+}
+
+.proto-section-heading p {
+  margin: 0;
+  color: rgba(57, 41, 25, 0.78);
+  font-size: 0.95rem;
+}
+
+.proto-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(80, 53, 27, 0.34);
+}
+
+.proto-table-wrap table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.proto-table-wrap th,
+.proto-table-wrap td {
+  padding: 0.8rem 0.75rem;
+  border-right: 1px solid rgba(80, 53, 27, 0.23);
+  border-bottom: 1px solid rgba(80, 53, 27, 0.23);
+  vertical-align: middle;
+}
+
+.proto-table-wrap th:last-child,
+.proto-table-wrap td:last-child {
+  border-right: 0;
+}
+
+.proto-table-wrap tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.proto-table-wrap th {
+  background: rgba(87, 59, 30, 0.06);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.proto-table-wrap td:first-child {
+  width: 36px;
+  text-align: center;
+}
+
+.proto-table-wrap td:nth-child(2) {
+  width: 25%;
+}
+
+.proto-table-wrap td:nth-child(3) {
+  width: 27%;
+  font-size: 0.98rem;
+}
+
+.proto-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+}
+
+.proto-breakdown span {
+  display: grid;
+  justify-items: center;
+  white-space: nowrap;
+}
+
+.proto-breakdown b,
+.proto-breakdown em {
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.proto-breakdown em {
+  color: rgba(54, 39, 24, 0.72);
+}
+
+.proto-evolution {
+  margin-top: 3.4rem;
+}
+
+.proto-timeline {
+  position: relative;
+  display: grid;
+  gap: 1.55rem;
+  margin-top: 1.8rem;
+  padding-left: 2.7rem;
+}
+
+.proto-timeline::before {
+  position: absolute;
+  top: 0.3rem;
+  bottom: 0.5rem;
+  left: 0.62rem;
+  width: 1px;
+  content: "";
+  background: rgba(86, 58, 30, 0.42);
+}
+
+.proto-timeline article {
+  position: relative;
+}
+
+.proto-timeline article::before {
+  position: absolute;
+  top: 0.28rem;
+  left: -2.45rem;
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgba(81, 53, 27, 0.75);
+  background: #c6a36a;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.proto-timeline h3 {
+  margin: 0 0 0.35rem;
+  color: #382719;
+  font-size: 1rem;
+}
+
+.proto-timeline h3 em {
+  font-weight: 400;
+}
+
+.proto-timeline p {
+  margin: 0;
+  line-height: 1.58;
 }
 
 .map-panel figure {
@@ -799,6 +1066,8 @@ footer p { margin: 0; }
 @media (max-width: 900px) {
   .contact-layout { grid-template-columns: 1fr; width: min(680px, calc(100% - 3rem)); padding-top: 2rem; }
   .contact-introduction { max-width: 560px; }
+  .proto-overview-grid { grid-template-columns: 1fr; }
+  .proto-overview-grid > section + section { border-top: 1px solid rgba(79, 52, 27, 0.28); border-left: 0; }
 }
 
 @media (max-width: 640px) {
@@ -835,12 +1104,19 @@ footer p { margin: 0; }
   footer { display: grid; justify-content: center; text-align: center; }
   .chapter-panel,
   .map-panel,
+  .proto-panel,
   .foc-placeholder { padding: 2.4rem 1.4rem; }
   .chapter-panel > h1,
   .map-panel > h1,
   .foc-placeholder > h1 { font-size: clamp(2.8rem, 15vw, 4.5rem); }
   .chapter-copy { font-size: 1rem; line-height: 1.65; }
   .chapter-copy p:not(.opening-paragraph) { text-indent: 1.25rem; }
+  .proto-title-block h1 { font-size: clamp(2.9rem, 14vw, 4.5rem); }
+  .proto-introduction { text-align: left; }
+  .proto-overview-grid > section { padding: 1.5rem 0; }
+  .proto-quote { padding-inline: 0.5rem; }
+  .proto-timeline { padding-left: 2.2rem; }
+  .proto-timeline article::before { left: -1.95rem; }
   .contact-layout { width: calc(100% - 2.5rem); gap: 2.5rem; padding: 2rem 0 3.5rem; }
   .contact-introduction { margin: 0 auto; text-align: center; }
   .contact-rule { margin-inline: auto; }

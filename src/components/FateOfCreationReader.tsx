@@ -24,33 +24,100 @@ const chapterParagraphs = [
   "And a voiceless command to rise filled the thoughts on these shadows like warm water in a calabash bowl, and hence the Medjai were born on the soils of Ebon Yard.",
 ] as const;
 
+const protoOverview = [
+  ["Word Order", "Verb – Subject – Object (VSO)"],
+  ["Questions", "Interrogatives appear at the end."],
+  ["Negation", "Precedes the clause."],
+  ["Verbs", "Built from biconsonantal roots (C¹–C²) with vowel patterns and aspect markers."],
+  ["Nouns", "Three classes—Animate, Inanimate, and Abstract—with case distinctions."],
+  ["No Subjunctive", "The Medjai’s Hallowed Sight leaves little room for uncertainty."],
+] as const;
+
+const protoExamples = [
+  {
+    english: "The fish is red.",
+    medjic: "be yabedami tomulath",
+    breakdown: [["be", "is"], ["the fish", "the fish"], ["red", "red"]],
+  },
+  {
+    english: "The fish swims.",
+    medjic: "be bodum yabedami",
+    breakdown: [["be", "is"], ["swims", "swims"], ["the fish", "the fish"]],
+  },
+  {
+    english: "The fish is swimming.",
+    medjic: "be stedi bodum yabedami",
+    breakdown: [["be", "is"], ["(is)-ing", "(is)-ing"], ["swims", "swims"], ["the fish", "the fish"]],
+  },
+  {
+    english: "The fish swims in the lake.",
+    medjic: "be bodum yabedami a yapil",
+    breakdown: [["be", "is"], ["swims", "swims"], ["the fish", "the fish"], ["in", "in"], ["the lake", "the lake"]],
+  },
+  {
+    english: "A fish swims in a lake.",
+    medjic: "be bodum mëherdami a mëpil",
+    breakdown: [["be", "is"], ["swims", "swims"], ["a fish", "a fish"], ["in", "in"], ["a lake", "a lake"]],
+  },
+  {
+    english: "Where does the fish swim?",
+    medjic: "be bodum yabedami maim?",
+    breakdown: [["be", "does"], ["swims", "swims"], ["the fish", "the fish"], ["where", "where"]],
+  },
+] as const;
+
+const medjicEvolution = [
+  {
+    name: "High Medjic",
+    era: "Pre-Amlak Contact",
+    description: "Spoken by the Medjai in Ebon Yard before meeting the Amlak. The Amlak learned High Medjic and introduced some loanwords, but the language remained otherwise uninfluenced.",
+  },
+  {
+    name: "Old Medjic",
+    era: "After Leviathan Contact",
+    description: "When the Medjai encountered the Leviathan—volatile and unpredictable beings—this clouded their Hallowed Sight. Rapid linguistic changes followed, including the development of a subjunctive mood. Once these shifts stabilized, the language became known as Old Medjic.",
+  },
+  {
+    name: "Primitive Leviic",
+    era: "Before Medjic Contact",
+    description: "The early language of the Leviathan before meaningful contact with the Medjai.",
+  },
+  {
+    name: "Low Leviic",
+    era: "Result of Leukander",
+    description: "Leukander, a Leviathan who defected south, introduced Old Medjic to an evolved form of Primitive Leviic. His people, resentful of the Medjai, developed a distinct tongue.",
+  },
+  {
+    name: "Low Medjic / Medjic",
+    era: "Lingua Franca",
+    description: "Through conquest, mixing, and centuries of shared history, Low Leviic and Old Medjic merged and evolved into the lingua franca of Ebon Yard. This is the language of the modern ages within the scope of our story.",
+  },
+] as const;
+
+function EmblemWatermark() {
+  return (
+    <svg className="chapter-emblem" viewBox="0 0 1400 1400" aria-hidden="true">
+      <defs>
+        <filter id="emblem-ink" colorInterpolationFilters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 0 0
+                   -0.333 -0.333 -0.333 0 1"
+          />
+        </filter>
+      </defs>
+      <image href="/images/mc-emblem.jpg" width="1400" height="1400" filter="url(#emblem-ink)" />
+    </svg>
+  );
+}
+
 function BeginningPanel() {
   return (
     <article className="chapter-panel" role="tabpanel" id="panel-beginning" aria-labelledby="tab-beginning">
       <div className="chapter-title-block">
-        <svg
-          className="chapter-emblem"
-          viewBox="0 0 1400 1400"
-          aria-hidden="true"
-        >
-          <defs>
-            <filter id="emblem-ink" colorInterpolationFilters="sRGB">
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0
-                        0 0 0 0 0
-                        0 0 0 0 0
-                       -0.333 -0.333 -0.333 0 1"
-              />
-            </filter>
-          </defs>
-          <image
-            href="/images/mc-emblem.jpg"
-            width="1400"
-            height="1400"
-            filter="url(#emblem-ink)"
-          />
-        </svg>
+        <EmblemWatermark />
         <div className="chapter-title-copy">
           <p className="foc-kicker">The Fate of Creation I</p>
           <div className="chapter-heading">
@@ -67,6 +134,99 @@ function BeginningPanel() {
         ))}
       </div>
     </article>
+  );
+}
+
+function ProtoMedjicPanel() {
+  return (
+    <section className="proto-panel" role="tabpanel" id="panel-proto-medjic" aria-labelledby="tab-proto-medjic">
+      <div className="chapter-title-block proto-title-block">
+        <EmblemWatermark />
+        <div className="chapter-title-copy">
+          <p className="foc-kicker">The Fate of Creation</p>
+          <h1>Proto-Medjic</h1>
+          <p className="proto-tagline">The ancestral tongue of the Medjai.</p>
+        </div>
+      </div>
+      <div className="chapter-rule" aria-hidden="true"><span /></div>
+
+      <p className="proto-introduction">
+        Proto-Medjic is the earliest attested form of the Medjai language, spoken before the arrival
+        of the Amlak and long before the ages of men. It reflects a people who see the world through
+        action, memory, and certainty.
+      </p>
+
+      <div className="proto-overview-grid">
+        <section>
+          <h2>Overview of the Language</h2>
+          <ul>
+            {protoOverview.map(([label, description]) => (
+              <li key={label}><strong>{label}:</strong> {description}</li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h2>The Language and the Medjai Mind</h2>
+          <p>
+            The Medjai view the world in terms of action and state. Fish are “that which swims.”
+            Rocks are “that which hards.” Their verbs describe how they themselves might relate or
+            be similar to the actions of the world around them.
+          </p>
+          <p>
+            Blessed with Hallowed Sight—perfect memory and a vision of the future—the Medjai do not
+            rely on uncertainty in speech as other peoples do. This will change when the Leviathan
+            enter their world.
+          </p>
+        </section>
+      </div>
+
+      <blockquote className="proto-quote">
+        <p>“Language is the mirror of how a people see the world—and the world they shape in return.”</p>
+        <cite>— From the Notes of the Medjai</cite>
+      </blockquote>
+
+      <section className="proto-reading" aria-labelledby="proto-reading-title">
+        <div className="proto-section-heading">
+          <h2 id="proto-reading-title">Reading Proto-Medjic</h2>
+          <p>A few example sentences to see the language in action.</p>
+        </div>
+        <div className="proto-table-wrap">
+          <table>
+            <thead>
+              <tr><th aria-label="Example number" /><th>English</th><th>Proto-Medjic</th><th>Breakdown</th></tr>
+            </thead>
+            <tbody>
+              {protoExamples.map((example, index) => (
+                <tr key={example.english}>
+                  <td>{index + 1}</td>
+                  <td>{example.english}</td>
+                  <td><em>{example.medjic}</em></td>
+                  <td className="proto-breakdown">
+                    {example.breakdown.map(([word, gloss], tokenIndex) => (
+                      <span key={`${word}-${tokenIndex}`}><b>{word}</b><em>({gloss})</em></span>
+                    ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="proto-evolution" aria-labelledby="proto-evolution-title">
+        <div className="proto-section-heading">
+          <h2 id="proto-evolution-title">The Evolution of Proto-Medjic</h2>
+        </div>
+        <div className="proto-timeline">
+          {medjicEvolution.map((stage) => (
+            <article key={stage.name}>
+              <h3>{stage.name} <em>({stage.era})</em></h3>
+              <p>{stage.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </section>
   );
 }
 
@@ -132,7 +292,8 @@ export function FateOfCreationReader() {
       <div className="foc-parchment">
         {activeTab === "beginning" ? <BeginningPanel /> : null}
         {activeTab === "map" ? <MapPanel /> : null}
-        {activeTab !== "beginning" && activeTab !== "map" ? (
+        {activeTab === "proto-medjic" ? <ProtoMedjicPanel /> : null}
+        {activeTab !== "beginning" && activeTab !== "map" && activeTab !== "proto-medjic" ? (
           <PlaceholderPanel label={active.label} id={active.id} />
         ) : null}
       </div>
