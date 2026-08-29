@@ -1,0 +1,12 @@
+---
+title: "Post title"
+description: "One sentence summary."
+date: "YYYY-MM-DD"
+author: "Author name"
+category: "Category"
+order: "1"
+image: ""
+imageAlt: ""
+---
+
+Write the post here.
