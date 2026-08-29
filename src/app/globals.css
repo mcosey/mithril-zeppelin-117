@@ -223,6 +223,276 @@ footer {
 }
 footer p { margin: 0; }
 
+.foc-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 58% 18%, rgba(61, 61, 36, 0.23), transparent 34%),
+    repeating-linear-gradient(11deg, transparent 0 12px, rgba(220, 196, 132, 0.018) 13px),
+    #10110c;
+}
+
+.foc-reader {
+  display: grid;
+  grid-template-columns: minmax(245px, 310px) minmax(0, 1fr);
+  gap: 1.2rem;
+  width: min(1500px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 0 1.4rem;
+}
+
+.foc-sidebar {
+  align-self: start;
+  min-height: calc(100vh - 122px);
+  border: 1px solid rgba(170, 130, 68, 0.34);
+  background:
+    radial-gradient(circle at 30% 28%, rgba(60, 62, 36, 0.24), transparent 32%),
+    linear-gradient(180deg, rgba(18, 20, 13, 0.97), rgba(13, 14, 10, 0.98));
+  color: var(--parchment);
+}
+
+.foc-sidebar-heading {
+  display: grid;
+  min-height: 145px;
+  place-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.foc-sidebar-heading p {
+  margin: 0;
+  color: var(--parchment-bright);
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.foc-sidebar-heading span {
+  width: 94px;
+  height: 1px;
+  margin: 1rem auto 0;
+  background: var(--parchment-muted);
+}
+
+.foc-tabs {
+  display: grid;
+}
+
+.foc-tabs button {
+  position: relative;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  min-height: 70px;
+  padding: 0.9rem 1.25rem;
+  border: 0;
+  border-top: 1px solid rgba(170, 130, 68, 0.25);
+  background: transparent;
+  color: var(--parchment);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 0.13em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.foc-tabs button > span {
+  color: var(--parchment-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0;
+}
+
+.foc-tabs button:hover,
+.foc-tabs button:focus-visible,
+.foc-tabs button[aria-selected="true"] {
+  background: linear-gradient(90deg, rgba(129, 96, 48, 0.35), rgba(129, 96, 48, 0.08));
+  color: var(--parchment-bright);
+}
+
+.foc-tabs button[aria-selected="true"]::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 3px;
+  content: "";
+  background: var(--parchment);
+}
+
+.foc-parchment {
+  position: relative;
+  min-height: calc(100vh - 122px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 17% 13%, rgba(255, 245, 205, 0.3), transparent 25%),
+    radial-gradient(circle at 78% 68%, rgba(114, 74, 31, 0.11), transparent 30%),
+    repeating-linear-gradient(7deg, transparent 0 11px, rgba(75, 48, 22, 0.022) 12px),
+    linear-gradient(135deg, #d6bd86 0%, #c9aa70 48%, #b99359 100%);
+  color: #292116;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+}
+
+.foc-parchment::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  box-shadow: inset 0 0 55px rgba(79, 44, 17, 0.28);
+  pointer-events: none;
+}
+
+.chapter-panel,
+.map-panel,
+.foc-placeholder {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2.5rem, 5vw, 5rem) clamp(2rem, 6vw, 6.5rem);
+}
+
+.foc-kicker {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.21em;
+  text-transform: uppercase;
+}
+
+.chapter-panel > h1,
+.map-panel > h1,
+.foc-placeholder > h1 {
+  max-width: 920px;
+  margin: 1.25rem 0 2.3rem;
+  color: #251e14;
+  font-size: clamp(3.4rem, 7vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.chapter-heading {
+  margin-bottom: 1.5rem;
+}
+
+.chapter-heading p {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chapter-heading h2 {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.45rem, 2.4vw, 2.2rem);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.chapter-rule {
+  display: flex;
+  align-items: center;
+  max-width: 780px;
+  margin: 1.6rem 0 2rem;
+}
+
+.chapter-rule::before,
+.chapter-rule::after {
+  height: 1px;
+  content: "";
+  background: rgba(79, 52, 27, 0.38);
+  flex: 1;
+}
+
+.chapter-rule span {
+  width: 6px;
+  height: 6px;
+  margin: 0 0.8rem;
+  border: 1px solid rgba(79, 52, 27, 0.65);
+  transform: rotate(45deg);
+}
+
+.chapter-copy {
+  max-width: 860px;
+  font-size: clamp(1rem, 1.2vw, 1.16rem);
+  line-height: 1.7;
+}
+
+.chapter-copy p {
+  margin: 0 0 1.25rem;
+}
+
+.chapter-copy p:not(.opening-paragraph) {
+  text-indent: 2.2rem;
+}
+
+.opening-paragraph::first-letter {
+  float: left;
+  margin: 0.08em 0.1em 0 0;
+  color: #4b351e;
+  font-size: 4.6em;
+  line-height: 0.76;
+}
+
+.chapter-pagination {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  max-width: 860px;
+  margin-top: 2.4rem;
+}
+
+.chapter-pagination span {
+  height: 1px;
+  background: rgba(79, 52, 27, 0.3);
+}
+
+.chapter-pagination button {
+  border: 0;
+  background: none;
+  color: rgba(41, 33, 22, 0.55);
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.map-panel figure {
+  max-width: 1080px;
+  margin: 0;
+}
+
+.map-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 18px 38px rgba(54, 35, 19, 0.28);
+}
+
+.map-panel figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.foc-placeholder {
+  display: grid;
+  min-height: calc(100vh - 122px);
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.foc-placeholder > h1 {
+  margin-bottom: 1.5rem;
+}
+
+.foc-placeholder > p:last-child {
+  margin: 0;
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
 .subpage-shell {
   position: relative;
   isolation: isolate;
@@ -240,6 +510,19 @@ footer p { margin: 0; }
   .hero-content { width: min(980px, calc(100% - 4rem)); gap: 3rem; }
   .hero h1 { font-size: clamp(3rem, 6vw, 5.2rem); }
   .progress-card { padding-inline: 1.5rem; }
+  .foc-reader { grid-template-columns: 220px minmax(0, 1fr); }
+  .foc-tabs button { grid-template-columns: 30px 1fr; padding-inline: 1rem; font-size: 0.8rem; }
+}
+
+@media (max-width: 640px) {
+  .foc-reader { grid-template-columns: 1fr; width: calc(100% - 1.25rem); }
+  .foc-sidebar { min-height: auto; }
+  .foc-sidebar-heading { min-height: 96px; }
+  .foc-tabs { grid-auto-columns: max-content; grid-auto-flow: column; overflow-x: auto; }
+  .foc-tabs button { grid-template-columns: 1fr; min-height: 58px; padding: 0.75rem 1.2rem; text-align: center; }
+  .foc-tabs button > span { display: none; }
+  .foc-tabs button[aria-selected="true"]::after { top: auto; left: 0; width: auto; height: 3px; }
+  .foc-parchment { min-height: 70vh; }
 }
 
 @media (max-width: 760px) {
@@ -263,6 +546,14 @@ footer p { margin: 0; }
   .progress-card { padding: 2rem 0.75rem; }
   .progress-card + .progress-card { border-top: 1px solid rgba(199, 157, 82, 0.28); border-left: 0; }
   footer { display: grid; justify-content: center; text-align: center; }
+  .chapter-panel,
+  .map-panel,
+  .foc-placeholder { padding: 2.4rem 1.4rem; }
+  .chapter-panel > h1,
+  .map-panel > h1,
+  .foc-placeholder > h1 { font-size: clamp(2.8rem, 15vw, 4.5rem); }
+  .chapter-copy { font-size: 1rem; line-height: 1.65; }
+  .chapter-copy p:not(.opening-paragraph) { text-indent: 1.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
