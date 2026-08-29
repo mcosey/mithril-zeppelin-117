@@ -70,7 +70,7 @@ const medjicEvolution = [
   {
     name: "High Medjic",
     era: "Pre-Amlak Contact",
-    description: "Spoken by the Medjai in Ebon Yard before meeting the Amlak. The Amlak learned High Medjic and introduced some loanwords, but the language remained otherwise uninfluenced.",
+    description: "The Medjai inhabited Ebon Yard and developed High Medjic before their first contact with the Amlak. When communicating with the Medjai, the Amlak spoke both High Medjic and their own unnamed language. High Medjic acquired loanwords from the Amlak language but was otherwise uninfluenced by it; this amalgamation became Proto-Medjic.",
   },
   {
     name: "Old Medjic",
@@ -90,7 +90,7 @@ const medjicEvolution = [
   {
     name: "Low Medjic / Medjic",
     era: "Lingua Franca",
-    description: "Through conquest, mixing, and centuries of shared history, Low Leviic and Old Medjic merged and evolved into the lingua franca of Ebon Yard. This is the language of the modern ages within the scope of our story.",
+    description: "Through conquest, mixing, and centuries of shared history, Low Leviic and Old Medjic merged and evolved into the lingua franca of Ebon Yard. This is the language of the modern ages depicted in the narrative.",
   },
 ] as const;
 
@@ -151,9 +151,10 @@ function ProtoMedjicPanel() {
       <div className="chapter-rule" aria-hidden="true"><span /></div>
 
       <p className="proto-introduction">
-        Proto-Medjic is the earliest attested form of the Medjai language, spoken before the arrival
-        of the Amlak and long before the ages of men. It reflects a people who see the world through
-        action, memory, and certainty.
+        Proto-Medjic is the earliest attested amalgamated form of the Medjai language. It emerged
+        when the Amlak used both High Medjic and their own unnamed language while communicating
+        with the Medjai, introducing loanwords into High Medjic. The language reflects a people who
+        see the world through action, memory, and certainty.
       </p>
 
       <div className="proto-overview-grid">
@@ -172,18 +173,8 @@ function ProtoMedjicPanel() {
             Rocks are “that which hards.” Their verbs describe how they themselves might relate or
             be similar to the actions of the world around them.
           </p>
-          <p>
-            Blessed with Hallowed Sight—perfect memory and a vision of the future—the Medjai do not
-            rely on uncertainty in speech as other peoples do. This will change when the Leviathan
-            enter their world.
-          </p>
         </section>
       </div>
-
-      <blockquote className="proto-quote">
-        <p>“Language is the mirror of how a people see the world—and the world they shape in return.”</p>
-        <cite>— From the Notes of the Medjai</cite>
-      </blockquote>
 
       <section className="proto-reading" aria-labelledby="proto-reading-title">
         <div className="proto-section-heading">
