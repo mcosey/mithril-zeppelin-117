@@ -27,9 +27,36 @@ const chapterParagraphs = [
 function BeginningPanel() {
   return (
     <article className="chapter-panel" role="tabpanel" id="panel-beginning" aria-labelledby="tab-beginning">
-      <p className="foc-kicker">Fate of Creation I</p>
-      <div className="chapter-heading">
-        <h2>The First Storm</h2>
+      <div className="chapter-title-block">
+        <svg
+          className="chapter-emblem"
+          viewBox="0 0 1400 1400"
+          aria-hidden="true"
+        >
+          <defs>
+            <filter id="emblem-ink" colorInterpolationFilters="sRGB">
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                       -0.333 -0.333 -0.333 0 1"
+              />
+            </filter>
+          </defs>
+          <image
+            href="/images/mc-emblem.jpg"
+            width="1400"
+            height="1400"
+            filter="url(#emblem-ink)"
+          />
+        </svg>
+        <div className="chapter-title-copy">
+          <p className="foc-kicker">Fate of Creation I</p>
+          <div className="chapter-heading">
+            <h2>The First Storm</h2>
+          </div>
+        </div>
       </div>
       <div className="chapter-rule" aria-hidden="true"><span /></div>
       <div className="chapter-copy">
@@ -38,11 +65,6 @@ function BeginningPanel() {
             {paragraph}
           </p>
         ))}
-      </div>
-      <div className="chapter-pagination" aria-label="Chapter navigation">
-        <button type="button" disabled>← Previous</button>
-        <span aria-hidden="true" />
-        <button type="button" disabled>Next →</button>
       </div>
     </article>
   );

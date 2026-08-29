@@ -441,29 +441,6 @@ footer p { margin: 0; }
   padding: clamp(3rem, 5vw, 5.4rem) clamp(2.4rem, 6vw, 6.8rem);
 }
 
-.chapter-panel::before {
-  position: absolute;
-  top: clamp(2.1rem, 4vw, 3.8rem);
-  right: clamp(2.2rem, 4vw, 4.5rem);
-  color: rgba(71, 46, 24, 0.42);
-  content: "MZ · 117";
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.chapter-panel::after {
-  position: absolute;
-  top: 4.8rem;
-  right: clamp(2rem, 4vw, 4.2rem);
-  z-index: -1;
-  color: rgba(77, 48, 22, 0.045);
-  content: "I";
-  font-size: clamp(10rem, 19vw, 21rem);
-  line-height: 0.75;
-  pointer-events: none;
-}
-
 .foc-kicker {
   margin: 0;
   color: #4b351e;
@@ -471,6 +448,32 @@ footer p { margin: 0; }
   font-weight: 600;
   letter-spacing: 0.21em;
   text-transform: uppercase;
+}
+
+.chapter-title-block {
+  position: relative;
+  display: grid;
+  min-height: clamp(230px, 30vw, 330px);
+  place-items: center;
+  isolation: isolate;
+  text-align: center;
+}
+
+.chapter-emblem {
+  position: absolute;
+  z-index: 0;
+  width: clamp(245px, 34vw, 390px);
+  height: auto;
+  opacity: 0.11;
+  transform: translateY(-1%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.chapter-title-copy {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px rgba(255, 241, 193, 0.4);
 }
 
 .chapter-panel > h1,
@@ -488,7 +491,7 @@ footer p { margin: 0; }
 }
 
 .chapter-heading {
-  margin: 1.2rem 0 1.5rem;
+  margin: 1.15rem 0 0;
 }
 
 .chapter-heading h2 {
@@ -542,30 +545,6 @@ footer p { margin: 0; }
   font-size: 4.6em;
   line-height: 0.76;
   text-shadow: 1px 1px rgba(255, 236, 180, 0.3);
-}
-
-.chapter-pagination {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1rem;
-  max-width: 860px;
-  margin-top: 2.4rem;
-}
-
-.chapter-pagination span {
-  height: 1px;
-  background: rgba(79, 52, 27, 0.3);
-}
-
-.chapter-pagination button {
-  border: 0;
-  background: none;
-  color: rgba(41, 33, 22, 0.55);
-  font: inherit;
-  font-size: 0.78rem;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
 }
 
 .map-panel figure {
