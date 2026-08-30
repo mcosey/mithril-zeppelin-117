@@ -28,8 +28,7 @@ export default function Home() {
       </section>
       <WritingProgress />
       <footer>
-        <p>Mithril Zeppelin 117 Publishing</p>
-        <p>Stories of myth. Worlds of meaning.</p>
+        <p>© Mithril Zeppelin 117 Publishing</p>
       </footer>
     </main>
   );
