@@ -26,7 +26,6 @@ export default function BardNamedBlythePage() {
         <section className="bard-parchment" id="overview" aria-labelledby="bard-title">
           <header className="bard-masthead">
             <h1 id="bard-title">The Bard Named Blythe</h1>
-            <div className="bard-rule" aria-hidden="true"><span /></div>
             <Link
               className="bard-instagram-button"
               href="https://www.instagram.com/thebardnamedblythe"
@@ -51,7 +50,6 @@ export default function BardNamedBlythePage() {
             </figure>
             <div className="bard-book-copy">
               <h2>The Tempest Lullaby</h2>
-              <div className="bard-small-rule" aria-hidden="true"><span /></div>
               <p>
                 The Tempest Lullaby: And Other Poems, Limericks, and Riddles is a delightful collection that invites readers of all ages to explore the whimsical and profound through playful verses, clever riddles, and timeless reminders. From the soothing melody of a storm put to bed to limericks that spark laughter and rhymes that nudge us toward kindness, this book is a celebration of wordplay and wonder.
               </p>
@@ -74,8 +72,6 @@ export default function BardNamedBlythePage() {
             </div>
           </article>
 
-          <div className="bard-section-divider" aria-hidden="true"><span /></div>
-
           <article className="bard-book bard-book-upcoming" id="bumble-bee-bridge">
             <figure className="bard-cover-placeholder" aria-label="Cover placeholder for The Bumble Bee Bridge">
               <span>Cover to come</span>
@@ -84,7 +80,6 @@ export default function BardNamedBlythePage() {
             <div className="bard-book-copy">
               <p className="bard-book-status">Coming soon</p>
               <h2>The Bumble Bee Bridge</h2>
-              <div className="bard-small-rule" aria-hidden="true"><span /></div>
               <p>Additional details to come.</p>
             </div>
           </article>

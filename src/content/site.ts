@@ -27,8 +27,10 @@ export const writingProjects = [
 ] as const;
 
 export const plannedPages = {
-  "other-works": { eyebrow: "Stories beyond the known map", title: "Other Works" },
-  about: { eyebrow: "Behind the stories", title: "About" },
+  about: {
+    title: "About",
+    body: "I honestly didn't have the time, inclination, or patience to write something here, but I will (try) eventually!",
+  },
 } as const;
 
 export type PlannedPageSlug = keyof typeof plannedPages;

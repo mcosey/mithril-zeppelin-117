@@ -7,7 +7,6 @@ export type PostSummary = {
   title: string;
   description: string;
   date: string;
-  author: string;
   category: string;
   image?: string;
   imageAlt?: string;
@@ -57,7 +56,7 @@ function readPost(filename: string): Post {
   const source = fs.readFileSync(path.join(postsDirectory, filename), "utf8");
   const { attributes, body } = parseFrontMatter(source);
 
-  const requiredFields = ["title", "description", "date", "author", "category"] as const;
+  const requiredFields = ["title", "description", "date", "category"] as const;
   const missingFields = requiredFields.filter((field) => !attributes[field]);
 
   if (missingFields.length > 0) {
@@ -69,7 +68,6 @@ function readPost(filename: string): Post {
     title: attributes.title,
     description: attributes.description,
     date: attributes.date,
-    author: attributes.author,
     category: attributes.category,
     image: attributes.image || undefined,
     imageAlt: attributes.imageAlt || undefined,
@@ -92,7 +90,6 @@ export function getAllPosts(): PostSummary[] {
       title: post.title,
       description: post.description,
       date: post.date,
-      author: post.author,
       category: post.category,
       image: post.image,
       imageAlt: post.imageAlt,

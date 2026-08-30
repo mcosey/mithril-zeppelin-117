@@ -16,24 +16,25 @@ function formatDate(date: string) {
 }
 
 export function BlogCard({ post }: BlogCardProps) {
+  const usesEmblem = post.image?.includes("mc-emblem-antique-gold");
+
   return (
     <article className="blog-card">
       {post.image ? (
-        <Link className="blog-card-image" href={`/blog/${post.slug}`} tabIndex={-1} aria-hidden="true">
+        <Link
+          className={`blog-card-image${usesEmblem ? " blog-card-image-emblem" : ""}`}
+          href={`/blog/${post.slug}`}
+          tabIndex={-1}
+          aria-hidden="true"
+        >
           <img src={post.image} alt={post.imageAlt || ""} />
         </Link>
       ) : null}
       <div className="blog-card-copy">
         <p className="blog-card-meta">
-          <span>{post.category}</span>
           <time dateTime={post.date}>{formatDate(post.date)}</time>
         </p>
         <h2><Link href={`/blog/${post.slug}`}>{post.title}</Link></h2>
-        <p className="blog-card-description">{post.description}</p>
-        <div className="blog-card-footer">
-          <span>{post.author}</span>
-          <Link href={`/blog/${post.slug}`}>Read post</Link>
-        </div>
       </div>
     </article>
   );

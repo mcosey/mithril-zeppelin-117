@@ -15,7 +15,7 @@ export function BlogSearch({ posts }: BlogSearchProps) {
     if (!normalizedQuery) return posts;
 
     return posts.filter((post) =>
-      [post.title, post.description, post.category, post.author]
+      [post.title, post.description, post.category]
         .join(" ")
         .toLowerCase()
         .includes(normalizedQuery),
@@ -34,7 +34,7 @@ export function BlogSearch({ posts }: BlogSearchProps) {
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Title, category, or author"
+          placeholder="Title or category"
         />
       </label>
       <p className="blog-result-count" aria-live="polite">

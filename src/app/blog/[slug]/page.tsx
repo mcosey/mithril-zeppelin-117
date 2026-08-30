@@ -42,6 +42,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
   const relatedPosts = getRelatedPosts(post);
+  const usesEmblem = post.image?.includes("mc-emblem-antique-gold");
 
   return (
     <main className="blog-page">
@@ -49,15 +50,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <article className="blog-article">
         <Link className="blog-back-link" href="/blog">Back to Blog</Link>
         <header className="blog-article-header">
-          <p>{post.category}</p>
           <h1>{post.title}</h1>
           <div className="blog-title-rule" aria-hidden="true"><span /></div>
           <p className="blog-article-byline">
-            <span>{post.author}</span>
             <time dateTime={post.date}>{formatDate(post.date)}</time>
           </p>
         </header>
-        {post.image ? <img className="blog-article-image" src={post.image} alt={post.imageAlt || ""} /> : null}
+        {post.image ? (
+          <div className={`blog-article-image${usesEmblem ? " blog-article-image-emblem" : ""}`}>
+            <img src={post.image} alt={post.imageAlt || ""} />
+          </div>
+        ) : null}
         <div className="blog-article-body" dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
       {relatedPosts.length > 0 ? (

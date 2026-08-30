@@ -22,7 +22,6 @@ export function GET() {
         <guid>${siteUrl}/blog/${post.slug}</guid>
         <pubDate>${new Date(`${post.date}T00:00:00Z`).toUTCString()}</pubDate>
         <description>${escapeXml(post.description)}</description>
-        <author>${escapeXml(post.author)}</author>
         <category>${escapeXml(post.category)}</category>
       </item>`)
     .join("");
