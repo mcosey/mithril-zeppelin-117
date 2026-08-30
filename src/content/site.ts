@@ -27,7 +27,6 @@ export const writingProjects = [
 ] as const;
 
 export const plannedPages = {
-  "the-bard-named-blythe": { eyebrow: "A tale in the making", title: "The Bard Named Blythe" },
   "other-works": { eyebrow: "Stories beyond the known map", title: "Other Works" },
   about: { eyebrow: "Behind the stories", title: "About" },
 } as const;
