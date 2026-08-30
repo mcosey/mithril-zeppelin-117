@@ -13,7 +13,6 @@ export default function ContactPage() {
       <section className="contact-layout" aria-labelledby="contact-title">
         <div className="contact-introduction">
           <h1 id="contact-title">Contact</h1>
-          <div className="contact-rule" aria-hidden="true"><span /></div>
         </div>
 
         <div className="contact-parchment">

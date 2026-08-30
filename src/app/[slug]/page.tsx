@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PlannedPageProps): Promise<Me
   if (!isPlannedPage(slug)) return {};
   return {
     title: `${plannedPages[slug].title} | Mithril Zeppelin 117 Publishing`,
-    description: `${plannedPages[slug].title} is being prepared for Mithril Zeppelin 117 Publishing.`,
+    description: plannedPages[slug].body,
   };
 }
 
@@ -31,9 +31,8 @@ export default async function PlannedPage({ params }: PlannedPageProps) {
     <main className="subpage-shell">
       <SiteHeader activeHref={`/${slug}`} />
       <section className="subpage" aria-labelledby="page-title">
-        <p className="subpage-eyebrow">{page.eyebrow}</p>
         <h1 id="page-title">{page.title}</h1>
-        <p>This part of the world is still being charted.</p>
+        <p>{page.body}</p>
       </section>
     </main>
   );
