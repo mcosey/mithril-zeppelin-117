@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const tabs = [
   { id: "beginning", label: "The First Storm", marker: "I" },
-  { id: "map", label: "Map", marker: "M" },
-  { id: "proto-medjic", label: "Proto-Medjic", marker: "P" },
-  { id: "calendar", label: "The Medjic Calendar", marker: "01" },
+  { id: "map", label: "Map", marker: "II" },
+  { id: "proto-medjic", label: "Proto-Medjic", marker: "III" },
+  { id: "calendar", label: "The Medjic Calendar", marker: "IV" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
@@ -98,6 +98,7 @@ const medjicEvolution = [
 ] as const;
 
 const medjicAges = [
+  "Age of Creation",
   "Age of Lucence",
   "Age of Consonance",
   "Age of Dissonance",
@@ -108,20 +109,14 @@ const medjicAges = [
 
 function EmblemWatermark() {
   return (
-    <svg className="chapter-emblem" viewBox="0 0 1400 1400" aria-hidden="true">
-      <defs>
-        <filter id="emblem-ink" colorInterpolationFilters="sRGB">
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0 0
-                   -0.333 -0.333 -0.333 0 1"
-          />
-        </filter>
-      </defs>
-      <image href="/images/mc-emblem.jpg" width="1400" height="1400" filter="url(#emblem-ink)" />
-    </svg>
+    <Image
+      className="chapter-emblem"
+      src="/images/mc-emblem-antique-gold.png"
+      alt=""
+      width={1145}
+      height={1374}
+      loading="eager"
+    />
   );
 }
 
@@ -252,10 +247,22 @@ function MapPanel() {
       <figure>
         <Image
           src="/images/ebon-yard-map.jpg"
-          alt="Map of Ebon Yard"
+          alt="Full map of Ebon Yard"
           width={1920}
           height={1357}
           quality={90}
+          loading="eager"
+          sizes="(max-width: 900px) 94vw, 74vw"
+        />
+      </figure>
+      <figure>
+        <Image
+          src="/images/world-map.jpg"
+          alt="Map of Ebon Yard"
+          width={2400}
+          height={1696}
+          quality={90}
+          loading="eager"
           sizes="(max-width: 900px) 94vw, 74vw"
         />
       </figure>
@@ -284,6 +291,14 @@ function MedjicCalendarPanel() {
 
 export function FateOfCreationReader() {
   const [activeTab, setActiveTab] = useState<TabId>("beginning");
+
+  useEffect(() => {
+    const mapImage = new window.Image();
+    mapImage.src = "/images/ebon-yard-map.jpg";
+
+    const worldMapImage = new window.Image();
+    worldMapImage.src = "/images/world-map.jpg";
+  }, []);
 
   return (
     <div className="foc-reader">
