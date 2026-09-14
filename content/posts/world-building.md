@@ -1,5 +1,5 @@
 ---
-title: "World Building"
+title: "On World Building (Briefly)"
 description: "So the plan was to try and write a blog post every Sunday about my writing progress...."
 date: "2026-09-13"
 category: "Blog"
