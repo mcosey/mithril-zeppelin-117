@@ -100,7 +100,7 @@ const medjicEvolution = [
 const medjicAges = [
   "Age of Creation",
   "Age of Lucence",
-  "Age of Consonance",
+  "Age of Convivence",
   "Age of Dissonance",
   "Age of Chasity",
   "Age of Severance",

@@ -22,7 +22,7 @@ export const writingProjects = [
   {
     series: "The Fate of Creation III",
     title: "First Draft",
-    progress: 27,
+    progress: 33,
   },
 ] as const;
 
